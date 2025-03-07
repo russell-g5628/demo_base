@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -77,29 +78,29 @@ WSGI_APPLICATION = "demo_base.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "testdb",
-        "USER": "test_user",
-        "PASSWORD": "Therichestteam1!",
-        "HOST": "pallo-test.mysql.polardb.rds.aliyuncs.com",
-        "PORT": 3306,
+        "NAME": os.environ["POLAR_DB_NAME"],
+        "USER": os.environ["POLAR_USERNAME"],
+        "PASSWORD": os.environ["POLAR_PASSWORD"],
+        "HOST": os.environ["POLAR_HOSTNAME"],
+        "PORT": os.environ["POLAR_PORT"],
         "OPTIONS": {"charset": "utf8mb4"},
     },
     "master": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "testdb",
-        "USER": "test_user",
-        "PASSWORD": "Therichestteam1!",
-        "HOST": "pallo-test.mysql.polardb.rds.aliyuncs.com",
-        "PORT": 3306,
+        "NAME": os.environ["POLAR_DB_NAME"],
+        "USER": os.environ["POLAR_USERNAME"],
+        "PASSWORD": os.environ["POLAR_PASSWORD"],
+        "HOST": os.environ["POLAR_HOSTNAME"],
+        "PORT": os.environ["POLAR_PORT"],
         "OPTIONS": {"charset": "utf8mb4"},
     },
     "slave": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "testdb",
-        "USER": "test_user",
-        "PASSWORD": "Therichestteam1!",
-        "HOST": "r-test.rwlb.rds.aliyuncs.com",
-        "PORT": 3306,
+        "NAME": os.environ["POLAR_DB_NAME"],
+        "USER": os.environ["POLAR_USERNAME"],
+        "PASSWORD": os.environ["POLAR_PASSWORD"],
+        "HOST": os.environ["POLAR_READ_HOSTNAME"],
+        "PORT": os.environ["POLAR_PORT"],
         "OPTIONS": {"charset": "utf8mb4"},
     },
 }
