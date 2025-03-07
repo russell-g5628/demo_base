@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-*&&@k=x8hc+h!!fu15##quiqgn_iox&un#z&#jf=askk5*6a^0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['101.132.89.67', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ["101.132.89.67", "localhost", "127.0.0.1"]
 
 
 # Application definition
@@ -75,9 +75,32 @@ WSGI_APPLICATION = "demo_base.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "testdb",
+        "USER": "test_user",
+        "PASSWORD": "Therichestteam1!",
+        "HOST": "pallo-test.mysql.polardb.rds.aliyuncs.com",
+        "PORT": 3306,
+        "OPTIONS": {"charset": "utf8mb4"},
+    },
+    "master": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "testdb",
+        "USER": "test_user",
+        "PASSWORD": "Therichestteam1!",
+        "HOST": "pallo-test.mysql.polardb.rds.aliyuncs.com",
+        "PORT": 3306,
+        "OPTIONS": {"charset": "utf8mb4"},
+    },
+    "slave": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "testdb",
+        "USER": "test_user",
+        "PASSWORD": "Therichestteam1!",
+        "HOST": "r-test.rwlb.rds.aliyuncs.com",
+        "PORT": 3306,
+        "OPTIONS": {"charset": "utf8mb4"},
+    },
 }
 
 
